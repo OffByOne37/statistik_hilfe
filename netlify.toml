@@ -1,0 +1,22 @@
+# netlify.toml
+
+[build]
+  command = "hugo --gc --minify"  # build command
+  publish = "public"              # folder Hugo generates
+
+# Set environment variables
+[context.production.environment]
+  HUGO_VERSION = "0.111.3"       # replace with your Hugo version
+  HUGO_ENV = "production"
+
+# Optional: build settings for deploy previews
+[context.deploy-preview.environment]
+  HUGO_VERSION = "0.111.3"
+
+# Optional: build settings for branch deploys
+[context.branch-deploy.environment]
+  HUGO_VERSION = "0.111.3"
+
+# Ensure git submodules (themes) are fetched
+[build.processing]
+  skip_processing = false
