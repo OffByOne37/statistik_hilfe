@@ -1,0 +1,63 @@
+baseURL = "https://www.example.com/"
+languageCode = "en-us"
+title = "Hugo Hero Theme"
+theme = "hugo-hero-theme"
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.92.0"
+    
+[params]
+  google_analytics_id=""
+
+  [params.logo]
+    mobile = "images/logo-mobile.svg"
+    mobile_height = "36px"
+    mobile_width = "36px"
+    desktop = "images/logo.svg"
+    desktop_height = "29px"
+    desktop_width = "217px"
+    alt = "Statistik Hero"
+
+  [params.homepage_meta_tags]
+    # General meta description
+    meta_description       = "Statistik Hilfe – Hilfestellung bei statistischen Auswertungen für Studierende, Unternehmen und Privatpersonen."
+
+    # Open Graph (Facebook, LinkedIn, etc.)
+    meta_og_title          = "Statistik Hilfe"
+    meta_og_type           = "website"
+    meta_og_url            = "https://your-site-url.com"  # Replace with your actual site URL
+    meta_og_image          = "https://your-site-url.com/images/og-image.png"  # Replace with a suitable OG image
+    meta_og_description    = "Statistik Hilfe bietet verständliche Lösungen für komplexe Datenanalysen – Tutorials, Tools und Tipps für Studierende, Unternehmen und Privatpersonen."
+
+
+
+[[menu.main]]
+	name = "Services"
+	url = "/services/"
+    weight = 1
+
+[[menu.main]]
+    name = "Preise"
+    url = "/work/"
+    weight = 3
+
+[[menu.main]]
+    name = "About me"
+    url = "/about/"
+    weight = 2
+
+[[menu.main]]
+    name = "Impressum"
+    url = "/history/"
+    weight = 5
+
+[[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 4
+
+[permalinks]
+  post = "/:year/:month/:day/:slug/"
+  pages = "/:filename/"
