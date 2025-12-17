@@ -1,4 +1,4 @@
-baseURL = "https://www.example.com/"
+baseURL = "https://rococo-salamander-95d345.netlify.app/"
 languageCode = "en-us"
 title = "Hugo Hero Theme"
 theme = "hugo-hero-theme"
@@ -12,10 +12,10 @@ theme = "hugo-hero-theme"
   google_analytics_id=""
 
   [params.logo]
-    mobile = "images/logo-mobile.svg"
+    mobile = "images/logo-mobile_new.svg"
     mobile_height = "36px"
     mobile_width = "36px"
-    desktop = "images/logo.svg"
+    desktop = "images/logo_new.svg"
     desktop_height = "29px"
     desktop_width = "217px"
     alt = "Statistik Hero"
