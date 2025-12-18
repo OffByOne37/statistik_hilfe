@@ -13003,4 +13003,51 @@ html {
   background-color: #eee;
   margin: 0 0 1em; }
 
+.list-unstyled-publications {
+  list-style: disc inside;
+  /* show bullets */
+  padding-left: 1.5rem;
+  /* proper indent */
+  margin-bottom: 0.5rem;
+  /* spacing between items */ }
+
+.list-unstyled-publications li {
+  margin-bottom: 0.25rem;
+  /* optional finer spacing */ }
+
+.bullet-notes ul.list-unstyled-notes {
+  list-style: disc inside;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem; }
+
+.bullet-notes ul.list-unstyled-notes li {
+  margin-bottom: 0.25rem; }
+
+.strip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0; }
+
+/* Gradient starts on left (text left) */
+.strip.gradient-left::before {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0) 100%); }
+
+/* Gradient starts on right (text right) */
+.strip.gradient-right::before {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0) 100%); }
+
+/* Gradient for centered text (optional, subtle) */
+.strip.gradient-center::before {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)); }
+
+/* Ensure text is above gradient */
+.strip .text-box {
+  position: relative;
+  z-index: 1; }
+
 /*# sourceMappingURL=style.css.map */

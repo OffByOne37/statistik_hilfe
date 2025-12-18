@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Contact on Hugo Hero Theme</title>
+    <title>Kontakt on Statistik Hilfe</title>
     <link>https://rococo-salamander-95d345.netlify.app/contact/</link>
-    <description>Recent content in Contact on Hugo Hero Theme</description>
+    <description>Recent content in Kontakt on Statistik Hilfe</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate></lastBuildDate>
     <atom:link href="https://rococo-salamander-95d345.netlify.app/contact/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

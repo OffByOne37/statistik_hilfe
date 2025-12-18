@@ -1,14 +1,12 @@
 ---
-title: 'History'
+title: 'Impressum'
 date: 2018-12-06T09:29:16+10:00
 draft: false
 heroHeading: 'Impressum'
-heroSubHeading: ''
+heroSubHeading: 'Rechtliche Angaben & Verantwortlichkeiten'
 heroBackground: 'images/background.jpg'
+layout: "impressum"
 ---
-
-
-# Impressum
 
 ## Titolare / Betreiberin der Website
 **Pia Tscholl**  

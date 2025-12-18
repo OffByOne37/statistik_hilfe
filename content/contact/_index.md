@@ -1,6 +1,7 @@
 ---
-title: 'Contact'
-date: 2018-02-22T17:01:34+07:00
+title: 'Kontakt'
+heroHeading: 'Kontakt'
+heroSubHeading: 'So kannst du uns erreichen'
+heroBackground: 'images/background.jpg'
+draft: false
 ---
-
-

@@ -546,14 +546,13 @@ progress {
   @media (min-width: 1200px) {
     .display-6 {
       font-size: 2.5rem; } }
-
 .list-unstyled {
   padding-left: 0;
-  list-style: inside; }
+  list-style: none; }
 
 .list-inline {
   padding-left: 0;
-  list-style: inside; }
+  list-style: none; }
 
 .list-inline-item {
   display: inline-block; }
@@ -3085,7 +3084,7 @@ textarea.form-control-lg {
   font-size: var(--bs-dropdown-font-size);
   color: var(--bs-dropdown-color);
   text-align: left;
-  list-style: inside;
+  list-style: none;
   background-color: var(--bs-dropdown-bg);
   background-clip: padding-box;
   border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
@@ -3382,7 +3381,7 @@ textarea.form-control-lg {
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
-  list-style: inside; }
+  list-style: none; }
 
 .nav-link {
   display: block;
@@ -3551,7 +3550,7 @@ textarea.form-control-lg {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
-  list-style: inside; }
+  list-style: none; }
   .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
     color: var(--bs-navbar-active-color); }
   .navbar-nav .dropdown-menu {
@@ -4089,7 +4088,7 @@ textarea.form-control-lg {
   padding: var(--bs-breadcrumb-padding-y) var(--bs-breadcrumb-padding-x);
   margin-bottom: var(--bs-breadcrumb-margin-bottom);
   font-size: var(--bs-breadcrumb-font-size);
-  list-style: inside;
+  list-style: none;
   background-color: var(--bs-breadcrumb-bg);
   border-radius: var(--bs-breadcrumb-border-radius); }
 
@@ -4127,7 +4126,7 @@ textarea.form-control-lg {
   --bs-pagination-disabled-border-color: var(--bs-border-color);
   display: flex;
   padding-left: 0;
-  list-style: inside; }
+  list-style: none; }
 
 .page-link {
   position: relative;
@@ -12268,7 +12267,7 @@ ul,
 ol {
   margin: 0;
   padding: 0;
-  list-style: inside; }
+  list-style: none; }
 
 .page {
   display: flex;
@@ -12326,7 +12325,7 @@ ol {
       .footer .footer-menu {
         margin-top: 0; } }
   .footer ul {
-    list-style: inside;
+    list-style: none;
     margin: 0;
     padding: 0;
     flex: 1; }
@@ -12354,13 +12353,13 @@ ol {
       .footer ul {
         height: inherit;
         display: flex;
-        list-style: inside;
+        list-style: none;
         margin: 0;
         padding: 0;
         align-items: center;
         justify-content: flex-end; }
         .footer ul li {
-          list-style: inside; }
+          list-style: none; }
           .footer ul li a {
             display: inline-block;
             padding: 10px 8px 10px 8px;
@@ -12381,11 +12380,11 @@ ol {
       .sub-footer .sub-footer-inner {
         flex-direction: row; } }
     .sub-footer .sub-footer-inner ul {
-      list-style: inside;
+      list-style: none;
       margin: 0;
       padding: 0; }
       .sub-footer .sub-footer-inner ul li {
-        list-style: inside;
+        list-style: none;
         display: block;
         color: #a8abb4;
         font-size: 0.9rem;
@@ -12451,7 +12450,7 @@ ol {
     align-items: center;
     justify-content: flex-start; }
     .main-menu > ul > li {
-      list-style: inside;
+      list-style: none;
       font-size: 0.9rem; }
       .main-menu > ul > li > a {
         padding: 10px 14px 10px 14px;
@@ -12511,7 +12510,7 @@ ol {
     font-size: 2rem;
     font-family: "Lato", "Helvetica Neue", Arial, sans-serif, -apple-system;
     text-align: center;
-    list-style: inside;
+    list-style: none;
     padding: 0;
     margin: 0;
     flex: 0; }
@@ -12552,7 +12551,7 @@ ol {
 ul.social {
   height: inherit;
   display: flex;
-  list-style: inside;
+  list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -12560,7 +12559,7 @@ ul.social {
   ul.social li {
     margin: 0;
     padding: 0;
-    list-style: inside;
+    list-style: none;
     display: inline-block;
     margin-right: 10px; }
     ul.social li:last-of-type {
@@ -13003,5 +13002,52 @@ html {
   /* Masonry bricks or child elements */
   background-color: #eee;
   margin: 0 0 1em; }
+
+.list-unstyled-publications {
+  list-style: disc inside;
+  /* show bullets */
+  padding-left: 1.5rem;
+  /* proper indent */
+  margin-bottom: 0.5rem;
+  /* spacing between items */ }
+
+.list-unstyled-publications li {
+  margin-bottom: 0.25rem;
+  /* optional finer spacing */ }
+
+.bullet-notes ul.list-unstyled-notes {
+  list-style: disc inside;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem; }
+
+.bullet-notes ul.list-unstyled-notes li {
+  margin-bottom: 0.25rem; }
+
+.strip::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0; }
+
+/* Gradient starts on left (text left) */
+.strip.gradient-left::before {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0) 100%); }
+
+/* Gradient starts on right (text right) */
+.strip.gradient-right::before {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.8) 30%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0) 100%); }
+
+/* Gradient for centered text (optional, subtle) */
+.strip.gradient-center::before {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)); }
+
+/* Ensure text is above gradient */
+.strip .text-box {
+  position: relative;
+  z-index: 1; }
 
 /*# sourceMappingURL=style.css.map */
