@@ -1,0 +1,39 @@
+<div class="work work-summary card h-100 shadow-sm mb-1">
+  <div class="card-body d-flex flex-column flex-grow-1">
+
+    {{/* Optional thumbnail image */}}
+    {{ if .Params.thumbnail }}
+    <div class="work-image mb-3">
+      <a href="{{ .RelPermalink }}">
+        <img src="{{ .Params.thumbnail | relURL }}" class="img-fluid rounded"/>
+      </a>
+    </div>
+    {{ end }}
+
+    {{/* Package title */}}
+    <h5 class="work-title card-title text-primary">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h5>
+
+    {{/* Package price */}}
+    {{ with .Params.price }}
+    <h6 class="card-subtitle mb-2 text-muted">{{ . }}</h6>
+    {{ end }}
+
+    {{/* Short description / first 2 items from description */}}
+    {{ with .Params.features }}
+    <ul class="list-unstyled mt-2 mb-0">
+      {{ range first 1 . }}
+      <li>• {{ . }}</li>
+      {{ end }}
+      {{ if gt (len .) 1 }}
+      <li>…</li>
+      {{ end }}
+    </ul>
+    {{ end }}
+
+    {{/* Full-width button at bottom */}}
+    <a href="{{ .Permalink }}" class="btn btn-primary mt-auto w-100">Mehr erfahren</a>
+
+  </div>
+</div>

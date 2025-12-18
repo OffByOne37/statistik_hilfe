@@ -1,0 +1,28 @@
+{{ $section := .Get 0 }}
+{{ $slug := .Get 1 }}
+
+{{ $page := site.GetPage (printf "%s/%s" $section $slug) }}
+
+{{ with $page }}
+<div class="strip bg-cover bg-position-center bg-overlay pt-15 pb-15"
+     style="background-image: url('{{ .Params.background | relURL }}');">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+
+        <h2 class="text-primary">{{ .Title }}</h2>
+
+        {{ .Content }}
+
+        {{ if .Params.button }}
+        <a class="button button-primary"
+           href="{{ .Params.buttonLink | relURL }}">
+           {{ .Params.button }}
+        </a>
+        {{ end }}
+
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

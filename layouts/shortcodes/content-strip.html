@@ -1,0 +1,46 @@
+{{ $section := .Get 0 }}
+{{ $slug := .Get 1 }}
+
+{{ $page := site.GetPage (printf "%s/%s" $section $slug) }}
+
+{{ with $page }}
+
+  {{/* Alignment: left / right / center */}}
+  {{ $align := .Params.align | default "left" }}
+  {{ $colClass := "col-12 col-md-6" }}
+  {{ $gradientClass := "gradient-left" }}
+
+  {{ if eq $align "right" }}
+    {{ $colClass = "col-12 col-md-6 offset-md-6" }}
+    {{ $gradientClass = "gradient-right" }}
+  {{ else if eq $align "center" }}
+    {{ $colClass = "col-12 col-md-8 offset-md-2 text-center" }}
+    {{ $gradientClass = "gradient-center" }}
+  {{ end }}
+
+  <div class="strip bg-cover bg-position-center {{ $gradientClass }} pt-15 pb-15" 
+       style="background-image: url('{{ .Params.background | relURL }}'); position: relative;">
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="{{ $colClass }}">
+
+          <div class="text-box bg-white bg-opacity-90 p-4 p-md-5 shadow rounded">
+            <h2 class="text-primary">{{ .Title }}</h2>
+
+            {{ .Content }}
+
+            {{ if .Params.button }}
+              <a class="button button-primary mt-3"
+                 href="{{ .Params.buttonLink | relURL }}">
+                 {{ .Params.button }}
+              </a>
+            {{ end }}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{ end }}

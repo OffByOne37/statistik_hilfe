@@ -1,0 +1,17 @@
+{{/* layouts/partials/publications.html */}}
+
+{{ if .Params.publications }}
+<div class="publications mt-2">
+  <ul class="list-unstyled-publications">
+    {{ range sort .Params.publications "year" "desc" }}
+    <li class="mb-1">
+      <strong>{{ .authors }} ({{ .year }})</strong><br>
+      <em>{{ .title }}</em><br>
+      {{ .journal }}
+      {{ with .doi }} – <a href="{{ . }}">DOI</a>{{ end }}
+      {{ with .weblink }} – <a href="{{ . }}">Link</a>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

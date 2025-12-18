@@ -1,0 +1,82 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-work-list{{ end }}
+{{ define "header_classes" }}{{ end }}
+
+{{ define "main" }}
+
+{{/* --- Hero Section --- */}}
+{{ partial "hero-image-setheight.html" (dict 
+    "background" .Params.heroBackground 
+    "heading" .Params.heroHeading 
+    "subheading" .Params.heroSubHeading 
+    "content" .
+)}}
+
+{{/* --- Page Intro / Content --- */}}
+{{ if .Content }}
+<div class="container pt-6 pt-md-10">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-intro">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+{{/* --- Student Packages --- */}}
+{{ $students := where .Pages ".Params.category" "student" }}
+
+{{ if gt (len $students) 0 }}
+<div class="container pb-6 pt-6 pb-md-0 pt-md-10">
+  <h2 class="text-center mb-6">Pakete für Studierende</h2>
+  <div class="row">
+
+    {{/* Packages with numeric price > 0 */}}
+    {{ $normal := sort (where $students ".Params.price_numeric" "gt" 0) ".Params.price_numeric" "asc" }}
+    {{ range $normal }}
+    <div class="col-12 col-md-4 mb-4">
+      {{ .Render "summary" }}
+    </div>
+    {{ end }}
+
+    {{/* Special packages with price_numeric 0 */}}
+    {{ $special := where $students ".Params.price_numeric" "eq" 0 }}
+    {{ range $special }}
+    <div class="col-12 col-md-4 mb-4">
+      {{ .Render "summary" }}
+    </div>
+    {{ end }}
+
+  </div>
+</div>
+{{ end }}
+
+{{/* --- Business Packages --- */}}
+{{ $business := where .Pages ".Params.category" "business" }}
+
+{{ if gt (len $business) 0 }}
+<div class="container pb-6 pt-6 pb-md-10 pt-md-0 bg-gray-50">
+  <h2 class="text-center mb-6">Pakete für Unternehmen</h2>
+  <div class="row">
+
+    {{ $normal := sort (where $business ".Params.price_numeric" "gt" 0) ".Params.price_numeric" "asc" }}
+    {{ range $normal }}
+    <div class="col-12 col-md-4 mb-4">
+      {{ .Render "summary" }}
+    </div>
+    {{ end }}
+
+    {{ $special := where $business ".Params.price_numeric" "eq" 0 }}
+    {{ range $special }}
+    <div class="col-12 col-md-4 mb-4">
+      {{ .Render "summary" }}
+    </div>
+    {{ end }}
+
+  </div>
+</div>
+{{ end }}
+
+{{ end }}

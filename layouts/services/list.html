@@ -1,0 +1,47 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-services-list{{ end }}
+{{ define "header_classes" }}{{ end }}
+
+{{ define "main" }}
+
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .)}}
+
+{{ if .Content }}
+<div class="container pt-6 pt-md-10">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-intro">
+        {{ .Content }}
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
+
+<!-- Services for Students -->
+{{ $students := where .Pages ".Params.category" "students" }}
+{{ if gt (len $students) 0 }}
+<div class="container pb-0 pt-0 pb-md-0 pt-md-2">
+  <h2 class="text-center mb-6">Services für Studierende</h2>
+  <div class="row">
+    {{ range first 5 (sort $students ".Params.weight") }}
+    <div class="col-12 col-md-6 mb-4">{{ .Render "summary" }}</div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+<!-- Services for Business -->
+{{ $business := where .Pages ".Params.category" "business" }}
+{{ if gt (len $business) 0 }}
+<div class="container pb-3 pt-0 pb-md-10 pt-md-0 bg-gray-50">
+  <h2 class="text-center mb-6">Services für Unternehmen</h2>
+  <div class="row">
+    {{ range first 5 (sort $business ".Params.weight") }}
+    <div class="col-12 col-md-6 mb-4">{{ .Render "summary" }}</div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ end }}

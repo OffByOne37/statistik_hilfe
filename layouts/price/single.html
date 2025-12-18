@@ -1,0 +1,98 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-work-single{{ end }}
+{{ define "header_classes" }}{{ end }}
+
+{{ define "main" }}
+
+{{/* Hero section */}}
+{{ partial "hero-image-setheight.html" (dict 
+  "background" .Params.heroBackground 
+  "heading" .Params.heroHeading 
+  "subheading" .Params.heroSubHeading 
+  "section" .Section 
+  "content" . 
+)}}
+
+<div class="container pt-4 pt-md-10 pb-4 pb-md-10">
+  <div class="row g-5">
+
+    {{/* Main content */}}
+    <div class="col-12 col-lg-10 mx-auto">
+      <div class="work work-single">
+
+        {{/* Intro card */}}
+        <div class="card shadow-sm mb-4">
+          <div class="card-body p-4 p-md-5">
+
+            <h1 class="card-title text-primary mb-2">
+              {{ .Title }}
+            </h1>
+
+            {{ with .Params.price }}
+              <p class="fs-4 fw-semibold text-muted mb-4">
+                {{ . }}
+              </p>
+            {{ end }}
+
+            {{ with .Params.features }}
+              <ul class="list-unstyled mb-4">
+                {{ range . }}
+                  <li class="d-flex align-items-start mb-2">
+                    <span class="me-2 text-primary">✓</span>
+                    <span>{{ . }}</span>
+                  </li>
+                {{ end }}
+              </ul>
+            {{ end }}
+
+            <a href="/contact/" class="btn btn-primary btn-lg">
+              Jetzt anfragen
+            </a>
+
+          </div>
+        </div>
+        
+        {{ with .Params.priceNote }}
+          <p class="text-muted small">{{ . }}</p>
+        {{ end }}
+
+
+        {{/* Long-form content */}}
+        {{ if .Content }}
+        <div class="content mt-4">
+          <h2 class="mb-3">Details</h2>
+          {{ .Content }}
+        </div>
+        {{ end }}
+
+      </div>
+    </div>
+
+    {{/* Optional gallery */}}
+    {{ if .Params.images }}
+    <div class="col-12 pt-5">
+      <h2 class="mb-3 text-uppercase">Gallery</h2>
+      <div class="masonry">
+        {{ range .Params.images }}
+          <div class="work-image item">
+            <img src="{{ . | relURL }}" alt="Gallery image"/>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+
+  </div>
+</div>
+{{ end }}
+
+{{ define "footer_js" }}
+{{ $library := resources.Get "js/libs/library.js" }}
+{{ $services := resources.Get "js/pages/services.js" }}
+{{ $servicesJS := slice $library $services | resources.Concat "js/services.js" }}
+{{ if hugo.IsServer }}
+  <script src="{{ $servicesJS.RelPermalink }}"></script>
+{{ else }}
+  <script src="{{ ($servicesJS | minify | fingerprint).RelPermalink }}"></script>
+{{ end }}
+{{ end }}

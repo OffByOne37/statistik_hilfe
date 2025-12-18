@@ -1,0 +1,27 @@
+{{/* layouts/partials/package-cards.html */}}
+
+{{ $category := .category }} <!-- pass 'student' or 'business' when calling -->
+{{ $packages := where .Page.Resources "Params.category" $category }}
+
+<div class="container">
+  <div class="row">
+    {{ range $packages }}
+    <div class="col-12 col-md-4 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title text-primary">{{ .Title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ .Params.price }}</h6>
+          <ul class="list-unstyled mt-3 mb-4">
+            {{ range .Params.description }}
+            <li>• {{ . }}</li>
+            {{ end }}
+          </ul>
+          {{ with .Params.buttonLink }}
+          <a href="{{ . | relURL }}" class="btn btn-primary mt-auto">Jetzt buchen</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>

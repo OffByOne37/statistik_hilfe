@@ -1,0 +1,11 @@
+{{/* layouts/partials/bullet-notes.html */}}
+
+{{ if .Params.notes }}
+<div class="bullet-notes mt-4">
+  <ul class="list-unstyled-notes">
+    {{ range .Params.notes }}
+    <li class="mb-1">{{ . }}</li>
+    {{ end }}
+  </ul>
+</div>
+{{ end }}
