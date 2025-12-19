@@ -13004,28 +13004,31 @@ html {
   margin: 0 0 1em; }
 
 .list-unstyled-publications {
-  list-style: disc inside;
+  list-style: disc inside !important;
   /* show bullets */
-  padding-left: 1.5rem;
+  padding-left: 1.5rem !important;
   /* proper indent */
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem !important;
   /* spacing between items */ }
 
 .list-unstyled-publications li {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.25rem !important;
   /* optional finer spacing */ }
 
 .bullet-notes ul.list-unstyled-notes {
-  list-style: disc inside;
-  padding-left: 1.5rem;
-  margin-bottom: 0.5rem; }
+  list-style: disc inside !important;
+  padding-left: 1.5rem !important;
+  margin-bottom: 0.5rem !important; }
 
 .bullet-notes ul.list-unstyled-notes li {
-  margin-bottom: 0.25rem; }
+  margin-bottom: 0.25rem !important; }
 
 .page-intro.service {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto; }
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important; }
+
+.hero-image {
+  background-color: #465b91 !important; }
 
 /*# sourceMappingURL=style.css.map */
