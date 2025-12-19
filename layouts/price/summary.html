@@ -21,7 +21,7 @@
     {{ end }}
 
     {{/* Short description / first 2 items from description */}}
-    {{ with .Params.features }}
+    {{/*  {{ with .Params.features }}
     <ul class="list-unstyled mt-2 mb-0">
       {{ range first 1 . }}
       <li>• {{ . }}</li>
@@ -30,7 +30,17 @@
       <li>…</li>
       {{ end }}
     </ul>
+    {{ end }}  */}}
+
+    {{/* Show all features as bullets */}}
+    {{ with .Params.features }}
+    <ul class="list-unstyled mt-2 mb-0">
+      {{ range . }}
+        <li>• {{ . }}</li>
+      {{ end }}
+    </ul>
     {{ end }}
+
 
     {{/* Full-width button at bottom */}}
     <a href="{{ .Permalink }}" class="btn btn-primary mt-auto w-100">Mehr erfahren</a>

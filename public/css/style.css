@@ -12848,7 +12848,7 @@ ul.social {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
-  background-color: #1c3ed3;
+  background-color: #465b91;
   height: 400px;
   position: relative;
   padding-top: 60px; }
@@ -13022,5 +13022,10 @@ html {
 
 .bullet-notes ul.list-unstyled-notes li {
   margin-bottom: 0.25rem; }
+
+.page-intro.service {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
 
 /*# sourceMappingURL=style.css.map */
